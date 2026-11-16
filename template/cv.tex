@@ -1,0 +1,12 @@
+%==================================================================
+%  SHARED DOCUMENT WRAPPER
+%  Every CV folder has a main.tex that sets \cvroot and includes this
+%  file. This file loads the preamble and the sibling body.tex.
+%  Never add content here -- put it in that folder's body.tex.
+%==================================================================
+\providecommand{\cvroot}{../../}
+\input{\cvroot template/preamble.tex}
+
+\begin{document}
+\input{body.tex}
+\end{document}

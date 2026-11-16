@@ -1,0 +1,8 @@
+% Koboflow -- personal banking platform, still under active development.
+% Public repo: https://github.com/jimroxodezi/koboflow
+% Describe the architecture, not shipped scale: most service modules are scaffolded.
+\begin{cvproject}{Koboflow}{Java 17, PostgreSQL, Kafka, Redis, Kubernetes}
+  \item Banking platform in active development, with services split by domain: core accounts, transfers, an interbank (NIP) simulator, statements, reconciliation, and notifications.
+  \item PostgreSQL per service as the system of record, \textbf{Kafka} for inter-service events, Resilience4j for retries and circuit breaking, ShedLock for distributed scheduled jobs.
+  \item \href{https://github.com/jimroxodezi/koboflow}{github.com/jimroxodezi/koboflow}
+\end{cvproject}

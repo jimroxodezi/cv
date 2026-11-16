@@ -1,0 +1,23 @@
+# LaTeX build artifacts (PDFs are kept on purpose)
+*.aux
+*.log
+*.fls
+*.fdb_latexmk
+*.out
+*.synctex.gz
+*.synctex(busy)
+*.xdv
+*.bbl
+*.blg
+*.toc
+*.lof
+*.lot
+*.bcf
+*.run.xml
+build/
+*.zip
+
+# OS / editor noise
+.DS_Store
+*.swp
+*~
