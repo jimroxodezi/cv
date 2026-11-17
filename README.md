@@ -5,22 +5,14 @@ so each application is a small delta rather than a rewrite.
 
 ## Web app
 
-`web/` packages this workflow as a self-hosted, multi-user app for friends:
+The multi-user app built on this workspace — career memory, variants, job
+tailoring, cover letters, snapshots — now lives in its own repository:
 
-- one career memory per person, built from a pasted dump, PDF, or DOCX
-- saved CV variants (AI, backend, telecom, research, general)
-- job tailoring from a pasted posting or a link, with keyword coverage and gaps
-- server-side LaTeX compilation, PDF/`.tex` download, and version history
+    ../cvstudio
 
-```bash
-cd web
-cp .env.example .env
-docker compose up --build
-```
-
-See [`web/README.md`](web/README.md) for configuration, deployment, and design.
-The rest of this file describes the original single-user LaTeX workspace, which
-the app reuses as its layout reference.
+It keeps its own README, Docker image, and database migrations. This repo stays
+focused on the LaTeX workspace below, which the app uses as its layout reference
+(`cvstudio/latex/preamble.tex` is a copy of `template/preamble.tex`).
 
 - **`master/career.md`** — the memory dump. All experience, projects, metrics,
   keyword mappings, and gaps, merged from your CV, your site, and your notes.

@@ -1,3 +1,8 @@
+# Generated output: built CVs, exported PDFs, the Tailscale workbook.
+# Everything here is reproducible from source; force-add with `git add -f` if a
+# specific artefact ever needs to be kept.
+docs/
+
 # LaTeX build artifacts (PDFs are kept on purpose)
 *.aux
 *.log
@@ -17,7 +22,20 @@
 build/
 *.zip
 
+# Secrets. The app has its own rules in web/.gitignore.
+.env
+.env.*
+!.env.example
+
+# Editor / merge leftovers. ./build.sh is the canonical build, so local editor
+# settings are not shared.
+.vscode/
+*.bak
+*.orig
+*.rej
+
 # OS / editor noise
 .DS_Store
+Thumbs.db
 *.swp
 *~

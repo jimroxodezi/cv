@@ -1,1 +1,0 @@
-ALTER TABLE "users" ADD COLUMN "deepseek_key" text DEFAULT '' NOT NULL;

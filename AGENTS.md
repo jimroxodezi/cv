@@ -2,11 +2,11 @@
 
 Instructions for any AI agent (or human) producing a CV here.
 
-> **`web/` is a separate app.** It packages this workflow as a multi-user
-> Next.js + Postgres service. It has its own README and does not use the
-> `content/`, `variants/`, or `jobs/` folders at runtime. Changes in `web/` do not
-> change the LaTeX workspace, and vice versa. Keep `web/latex/preamble.tex` in
-> sync with `template/preamble.tex` when the shared layout changes.
+> **The web app moved out.** CV Studio now lives in its own repository at
+> `../cvstudio` (`web/` here is just a pointer). It does not use `content/`,
+> `variants/`, or `jobs/` at runtime. The two repos share exactly one thing:
+> `cvstudio/latex/preamble.tex` is a copy of `template/preamble.tex`. When you
+> change the shared CV layout here, copy it there and rebuild that image.
 
 ## Layout
 
@@ -59,10 +59,11 @@ If `jobs/<slug>/` does not exist: `./new-job.sh <track> <slug>`.
 
 ## LaTeX conventions
 
-- Sections: `\cvsection{Experience}`, never `\section*`. It inserts `\vfill`
-  before the heading so the leftover space is shared between sections and the
-  page always ends at the bottom margin. A CV that stops two thirds down the
-  page is not finished.
+- Sections: `\cvsection{Experience}`, never `\section*`. It paces the section at a
+  fixed distance and marks the spot before the heading as a preferred page break,
+  so a heading never lands alone at the foot of a page. It does **not** stretch
+  space to fill the page — gaps between sections stay constant, and a CV that runs
+  out of content simply ends early or flows onto a second page.
 - Bulleted entries go inside `\begin{itemize} ... \end{itemize}`.
 - Job entry: `\begin{cvjob}{Company}{Location}{Role}{Dates} ... \end{cvjob}`
 - Project entry: `\begin{cvproject}{Name}{Stack, comma, separated} ... \end{cvproject}`
@@ -80,10 +81,15 @@ If `jobs/<slug>/` does not exist: `./new-job.sh <track> <slug>`.
 Run all of these before calling a CV done:
 
 1. `./build.sh jobs/<slug>` exits 0 and prints `ok`.
-2. Page count matches intent: **1 page** for industry, **2 max** for research.
+2. Page count matches intent: **1 page** for industry, **2 max** for research. If the
+   content genuinely needs a second page, let it run over rather than cutting facts
+   or squeezing the layout.
 3. **The page is full.** Content ends at the bottom margin; no dead space at the
    foot and no section gaps large enough to read as a mistake. Fix by adding a
    genuinely relevant bullet or project, not by padding.
+   `\cvsection` does not absorb leftover space — it paces sections at a fixed
+   distance. Vertical gaps are a content signal, so filling the page is a writing
+   decision, not something the preamble does for you.
 4. `pdftotext jobs/<slug>/main.pdf - | head -40` is readable and in the right
    order — that is what an ATS sees.
 5. No `Overfull \hbox` warnings: `grep -i overfull jobs/<slug>/main.log`
