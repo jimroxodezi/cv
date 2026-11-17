@@ -30,18 +30,19 @@ the polished output of this file.
 | --- | --- |
 | Full name | Jimrox Odezi Ogume |
 | Email | jimroxodezi@gmail.com |
-| Phone | +234 704 790 9914 |
 | Website | https://jimroxodezi.github.io |
 | Blog | https://jimroxodezi.github.io/blog.html |
 | GitHub | https://github.com/jimroxodezi |
 | LinkedIn | https://www.linkedin.com/in/jimrox-odezi-376658173/ |
-| X | https://x.com/basedattribute |
+| X | https://x.com/basedjimrox |
 | Location | Nigeria — works remotely (WAT / UTC+1) `TODO: confirm the city you list` |
 | Work authorization | `TODO: state it if you apply abroad (e.g. "requires sponsorship")` |
 | Languages | English (fluent) `TODO: add others` |
 
 **Name variants:** "Jimrox Odezi Ogume" is canonical for CVs. Do not shorten to
 "Jimrox O." on a CV; "Jimrox Odezi" is acceptable in a signature.
+
+**Phone:** deliberately not printed on CVs. Do not add it anywhere.
 
 ---
 
@@ -525,7 +526,7 @@ actually implemented; add measurements.`
 
 ### 5.7 SDR Signal Analyzer \& Visualizer
 
-| Stack | Python, GNU Radio, RTL-SDR, Qt |
+| Stack | Python, GNU Radio, RTL-SDR |
 
 - Real-time spectrum visualization and signal-detection tooling for live RF
   captures.
@@ -632,8 +633,7 @@ gaps. If gaps look wrong, add a relevant bullet or project, never padding.
 | Job looks like | Start from | Lead with |
 | --- | --- | --- |
 | AI automation, AI engineering, dev tooling | `variants/ai` | Curriculum, agents, three shipped products |
-| Backend, platform, API | `variants/backend` | Trading re-platform, AWS delivery, io_uring |
-| Distributed systems, infra, SRE-adjacent | `variants/distributed` | dbfailsim, Postgres control plane, Kafka |
+| Backend, platform, API, distributed systems, infra | `variants/backend` | Amaris platform, trading re-platform, AWS delivery, dbfailsim, Kafka/Kubernetes |
 | Telecom, RF, SDR | `variants/telecom` | Thesis, SDR analyzer, Xigma |
 | Research, academic | `variants/research` | Thesis, method, benchmark |
 | Anything broad / unsure | `variants/general` | The three strongest current threads |
@@ -646,18 +646,17 @@ gaps. If gaps look wrong, add a relevant bullet or project, never padding.
 - **Cut:** RF detail; keep one research line at most.
 - **Prove:** you shipped AI into systems, not just talked about it.
 
-### Backend / platform
+### Backend / platform / distributed (one CV)
+
+Backend and distributed systems are the same track here — one variant covers
+both. The project list is a compact index of everything built; the roles carry
+the depth.
 
 - **Lead with:** the Amaris platform (Next.js/Postgres, end to end), the
-  Fastify/PostgreSQL re-platform, AWS production ownership, the control plane.
+  Fastify/PostgreSQL re-platform, AWS production ownership, dbfailsim, the
+  control plane.
 - **Cut:** curriculum and training detail; one line is enough.
 - **Prove:** schema design, migrations, deployment, security controls.
-
-### Distributed systems / infrastructure
-
-- **Lead with:** dbfailsim, the Postgres control plane, Kafka/Kubernetes.
-- **Cut:** CRM analytics; use `minas-engineering`.
-- **Prove:** failure behaviour, convergence, storage trade-offs.
 
 ### Telecom / RF / SDR
 

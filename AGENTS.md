@@ -2,13 +2,19 @@
 
 Instructions for any AI agent (or human) producing a CV here.
 
+> **`web/` is a separate app.** It packages this workflow as a multi-user
+> Next.js + Postgres service. It has its own README and does not use the
+> `content/`, `variants/`, or `jobs/` folders at runtime. Changes in `web/` do not
+> change the LaTeX workspace, and vice versa. Keep `web/latex/preamble.tex` in
+> sync with `template/preamble.tex` when the shared layout changes.
+
 ## Layout
 
 ```
 master/career.md        single source of truth — all facts live here
 content/                reusable LaTeX fragments (no section headings*)
 template/               shared preamble + document wrapper (do not edit per job)
-variants/<track>/       ready-made base CVs: ai, backend, distributed, telecom, research, general
+variants/<track>/       ready-made base CVs: ai, backend, telecom, research, general
 jobs/<slug>/            one application: job-description.md, notes.md, body.tex
 prompts/                copy-paste prompts for external agents
 ```
@@ -35,8 +41,9 @@ asks for something the memory file does not support, write it in
 
 1. **Read** `master/career.md` in full, then `jobs/<slug>/job-description.md`,
    then the closest `variants/<track>/body.tex`.
-2. **Choose the track** that matches the posting (ai, backend, distributed,
-   telecom, research, general) and start from its `body.tex`.
+2. **Choose the track** that matches the posting (ai, backend, telecom,
+   research, general) and start from its `body.tex`. Backend and distributed
+   systems are one track: `variants/backend`.
 3. **Map keywords.** Extract the posting's required skills and responsibilities.
    For each, note the supporting evidence from `career.md`. Record the mapping
    table in `jobs/<slug>/notes.md`.

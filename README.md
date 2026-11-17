@@ -3,13 +3,32 @@
 A LaTeX CV system built around one fact file and a library of reusable blocks,
 so each application is a small delta rather than a rewrite.
 
+## Web app
+
+`web/` packages this workflow as a self-hosted, multi-user app for friends:
+
+- one career memory per person, built from a pasted dump, PDF, or DOCX
+- saved CV variants (AI, backend, telecom, research, general)
+- job tailoring from a pasted posting or a link, with keyword coverage and gaps
+- server-side LaTeX compilation, PDF/`.tex` download, and version history
+
+```bash
+cd web
+cp .env.example .env
+docker compose up --build
+```
+
+See [`web/README.md`](web/README.md) for configuration, deployment, and design.
+The rest of this file describes the original single-user LaTeX workspace, which
+the app reuses as its layout reference.
+
 - **`master/career.md`** — the memory dump. All experience, projects, metrics,
   keyword mappings, and gaps, merged from your CV, your site, and your notes.
   This is what an agent reads.
 - **`content/`** — reusable LaTeX fragments (one role, one project, one skills
   set).
-- **`variants/`** — six ready CVs: `ai`, `backend`, `distributed`, `telecom`,
-  `research`, `general`.
+- **`variants/`** — five ready CVs: `ai`, `backend` (which also covers
+  distributed systems), `telecom`, `research`, `general`.
 - **`jobs/`** — one folder per application, with the posting and the tailored
   body.
 
@@ -27,7 +46,6 @@ Output lands next to each `main.tex` as `main.pdf`:
 ```
 variants/ai/main.pdf
 variants/backend/main.pdf
-variants/distributed/main.pdf
 variants/telecom/main.pdf
 variants/research/main.pdf
 variants/general/main.pdf
